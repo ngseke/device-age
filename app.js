@@ -21,7 +21,10 @@ function generateMenu () {
     a.setAttribute('href', '#')
     li.appendChild(a)
     el.appendChild(li)
-    a.addEventListener('click', e => showAge(name))
+    a.addEventListener('click', e => {
+      e.preventDefault()
+      showAge(name)
+    })
   })
 }
 
