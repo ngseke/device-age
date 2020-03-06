@@ -1,11 +1,47 @@
+/* 色彩變數 */
+:root {
+  --text-color-normal: #1e1e1e;
+  --background-color: white;
+  --link-color: #FFA000;
+  --link-color-hover: #FF8F00;
+  --selection-background: rgba(255, 213, 79, .5);
+}
+
+/* 色彩變數(深色模式) */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-color-normal: white;
+    --background-color: #1e1e1e;
+    --link-color: #FFD54F;
+    --link-color-hover: #FFCA28;
+  }
+}
+ 
+
+html, body {
+  height: 100%;
+  overflow: hidden;
+}
+
+::selection {
+  background: var(--selection-background);
+}
+
 body {
   font-family: 'Spartan', sans-serif;
-  height: 100vh;
   font-weight: 100;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  color: var(--text-color-normal);
+  background: var(--background-color);
+  transition: opacity 1s, transform 1s;
+}
+
+.hide {
+  opacity: 0;
+  transform: translateY(5rem);
 }
 
 main {
@@ -14,6 +50,7 @@ main {
   justify-content: center;
   align-items: center;
   max-width: 500px;
+  margin: 0 1rem;
 }
 
 h1 {
@@ -24,12 +61,12 @@ h1 {
 }
 
 h1 .device {
-  font-weight: 200;
+  font-weight: 300;
+  font-style: italic;
 }
 
 h2.age {
   font-size: 2rem;
-  color: #000;
   margin-bottom: 5rem;
 }
 
@@ -44,11 +81,26 @@ ul li {
 }
 
 ul li a {
-  color: #E91E63;
+  color: var(--link-color);
+  font-weight: 300;
+  text-decoration: none;
+  position: relative;
 }
 
 ul li a:hover {
-  color: #C2185B;
+  color: var(--link-color-hover);
+}
+
+ul li a:hover::after {
+  content: '';
+  background-color: var(--link-color);
+  position: absolute;
+  border-radius: 100rem;
+  width: 5px;
+  height: 5px;
+  bottom: -1.3rem;
+  left: 50%;
+  transform: translateY(-50%);
 }
 
 @media (max-width: 575.98px) {

@@ -7,7 +7,8 @@ const devices = Object.keys(birthday)
 
 window.onload = () => {
   generateMenu()
-  showAge(devices[0])
+  setCurrentDevice(devices[0])
+  document.querySelector('body').classList.remove('hide')
 }
  
 function generateMenu () {
@@ -21,20 +22,22 @@ function generateMenu () {
     a.setAttribute('href', '#')
     li.appendChild(a)
     el.appendChild(li)
+    
     a.addEventListener('click', e => {
       e.preventDefault()
-      showAge(name)
+      setCurrentDevice(name)
     })
   })
 }
 
-function showAge (name) {
+function setCurrentDevice (name) {
   const device = document.querySelector('.device')
   const age = document.querySelector('h2.age')
   device.innerHTML = name
   const { year: y, month: m, day: d } = calc(birthday[name])
   
   age.innerHTML = `${y}y ${m}m ${d}d`
+  setTitle(document.querySelector('h1').innerText)
 }
 
 function calc (date) {
@@ -50,4 +53,8 @@ function calc (date) {
   const day = a.diff(b, 'days')
 
   return { year, month, day }
+}
+
+function setTitle (text) {
+  document.title = text
 }
