@@ -92,18 +92,6 @@ ul li a:hover {
   color: var(--link-color-hover);
 }
 
-ul li a:hover::after {
-  content: '';
-  background-color: var(--link-color);
-  position: absolute;
-  border-radius: 100rem;
-  width: 5px;
-  height: 5px;
-  bottom: -1.3rem;
-  left: 50%;
-  transform: translateY(-50%);
-}
-
 @media (max-width: 575.98px) {
   html {
     font-size: 14px;
