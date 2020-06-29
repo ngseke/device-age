@@ -10,12 +10,30 @@
   <title>How old is my ...?</title>
 </head>
 <body class="hide">
-  <main>
-    <h1>How old is my <span class="device"></span>?</h1>
-    <h2 class="age"></h2>
-    <ul class="menu"></ul>
+  <main id="app">
+    <h1>How old is my <span class="device">{{ current }}</span>?</h1>
+    <h2 class="age" @click="toggleFormat">
+      <template v-if="format === 'ymd'">
+        {{ age.year }}
+        <span class="unit">Y</span>
+        {{ age.month }}
+        <span class="unit">M</span>
+        {{ age.day }}
+        <span class="unit">D</span>
+      </template>
+      <template v-if="format === 'd'">
+        {{ day }}
+        <span class="unit">D</span>
+      </template>
+    </h2>
+    <ul class="menu">
+      <li v-for="name in devices">
+        <a href="#" @click.prevent="select(name)">{{ name }}</a>
+      </li>
+    </ul>
   </main>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2.6.11"></script>
   <script src="app.js"></script>
 </body>
 </html>

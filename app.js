@@ -6,40 +6,49 @@ const birthday = {
 }
 const devices = Object.keys(birthday)
 
-window.onload = () => {
-  generateMenu()
-  setCurrentDevice(devices[0])
-  document.querySelector('body').classList.remove('hide')
-}
- 
-function generateMenu () {
-  const el = document.querySelector('ul.menu')
-  
-  devices.forEach(name => {
-    const li = document.createElement('li')
-    const a = document.createElement('a')
-    
-    a.innerHTML = name
-    a.setAttribute('href', '#')
-    li.appendChild(a)
-    el.appendChild(li)
-    
-    a.addEventListener('click', e => {
-      e.preventDefault()
-      setCurrentDevice(name)
-    })
-  })
-}
-
-function setCurrentDevice (name) {
-  const device = document.querySelector('.device')
-  const age = document.querySelector('h2.age')
-  device.innerHTML = name
-  const { year: y, month: m, day: d } = calc(birthday[name])
-  
-  age.innerHTML = `${y}y ${m}m ${d}d`
-  setTitle(document.querySelector('h1').innerText)
-}
+new Vue({
+  el: '#app',
+  data: () => ({
+    current: devices[0],
+    format: 'ymd',
+  }),
+  mounted() {
+    document.querySelector('body').classList.remove('hide')
+  },
+  methods: {
+    select (name) {
+      this.current = name
+    },
+    setTitle (name) {
+      document.title = `How old is my ${name}?`
+    },
+    toggleFormat () {
+      const formats = ['ymd', 'd']
+      const newIndex = (formats.findIndex(i => i === this.format) + 1) % formats.length
+      this.format = formats[newIndex]
+    }
+  },
+  computed: {
+    devices () {
+      return devices
+    },
+    age () {
+      const { year, month, day } = calc(birthday[this.current])
+      return { year, month, day }
+    },
+    day () {
+      return moment().diff(birthday[this.current], 'days')
+    }
+  },
+  watch: {
+    current: {
+      immediate: true,
+      handler (value) {
+        this.setTitle(value)
+      }
+    }
+  }
+})
 
 function calc (date) {
   const a = moment()
@@ -54,8 +63,4 @@ function calc (date) {
   const day = a.diff(b, 'days')
 
   return { year, month, day }
-}
-
-function setTitle (text) {
-  document.title = text
 }

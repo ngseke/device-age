@@ -70,6 +70,11 @@ h2.age {
   margin-bottom: 5rem;
 }
 
+h2.age .unit {
+  font-size: 80%;
+}
+
+
 ul {
   display: flex;
   flex-wrap: wrap;
