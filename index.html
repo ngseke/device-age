@@ -25,6 +25,9 @@
         {{ day }}
         <span class="unit">D</span>
       </template>
+      <template v-if="format === 'birthday'">
+        {{ birthday }}
+      </template>
     </h2>
     <ul class="menu">
       <li v-for="name in devices">

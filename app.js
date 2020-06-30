@@ -23,7 +23,7 @@ new Vue({
       document.title = `How old is my ${name}?`
     },
     toggleFormat () {
-      const formats = ['ymd', 'd']
+      const formats = ['ymd', 'd', 'birthday']
       const newIndex = (formats.findIndex(i => i === this.format) + 1) % formats.length
       this.format = formats[newIndex]
     }
@@ -38,7 +38,10 @@ new Vue({
     },
     day () {
       return moment().diff(birthday[this.current], 'days')
-    }
+    },
+    birthday () {
+      return birthday[this.current]
+    },
   },
   watch: {
     current: {
