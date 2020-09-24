@@ -5,6 +5,7 @@ const birthday = {
   'iPad 6th Gen': '2018-07-02',
   'AirPods': '2018-01-23',
   'AirPods Pro': '2020-07-09',
+  'Apple Watch SE': '2020-09-23',
 }
 const devices = Object.keys(birthday)
 

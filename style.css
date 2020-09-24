@@ -101,4 +101,16 @@ ul li a:hover {
   html {
     font-size: 14px;
   }
+
+  h1, h2.age {
+    margin-bottom: 3rem;
+  }
+
+  ul {
+    flex-direction: column;
+  }
+
+  ul li {
+    margin-bottom: .75rem;
+  }
 }
