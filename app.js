@@ -13,16 +13,12 @@ const devices = Object.keys(birthday)
 new Vue({
   el: '#app',
   data: () => ({
-    current: devices[0],
-    format: 'ymd',
+    birthday,
   }),
   mounted() {
     document.querySelector('body').classList.remove('hide')
   },
   methods: {
-    select (name) {
-      this.current = name
-    },
     setTitle (name) {
       document.title = `How old is my ${name}?`
     },
@@ -30,31 +26,15 @@ new Vue({
       const formats = ['ymd', 'd', 'birthday']
       const newIndex = (formats.findIndex(i => i === this.format) + 1) % formats.length
       this.format = formats[newIndex]
-    }
-  },
-  computed: {
-    devices () {
-      return devices
     },
-    age () {
-      const { year, month, day } = calc(birthday[this.current])
+    getAge (date) {
+      const { year, month, day } = calc(date)
       return { year, month, day }
     },
-    day () {
-      return moment().diff(birthday[this.current], 'days')
-    },
-    birthday () {
-      return birthday[this.current]
+    getDays (date) {
+      return moment().diff(date, 'days')
     },
   },
-  watch: {
-    current: {
-      immediate: true,
-      handler (value) {
-        this.setTitle(value)
-      }
-    }
-  }
 })
 
 function calc (date) {
