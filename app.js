@@ -4,6 +4,7 @@ const birthday = {
   'iPhone 12': '2021-03-20',
   'iPhone 8': '2018-09-25',
   'iPad 6th Gen': '2018-07-02',
+  'iPad Pro 11 3rd Gen': '2022-03-28',
   'AirPods': '2018-01-23',
   'AirPods Pro': '2020-07-09',
   'Apple Watch SE': '2020-09-23',
