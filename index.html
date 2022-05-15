@@ -28,8 +28,8 @@
             <td>{{ date }}</td>
             <td class="text-right">
               <span class="whitespace-pre">{{ getAge(date).year }} <span class="unit">Y</span></span>
-              <span class="whitespace-pre">{{ String(getAge(date).month).padStart(2, ' ') }} <span class="unit">M</span></span>
-              <span class="whitespace-pre">{{ String(getAge(date).day).padStart(2, ' ') }} <span class="unit">D</span></span>
+              <span class="whitespace-pre">{{ String(getAge(date).month).padStart(3, ' ') }} <span class="unit">M</span></span>
+              <span class="whitespace-pre">{{ String(getAge(date).day).padStart(3, ' ') }} <span class="unit">D</span></span>
             </td>
             <td class="text-right">
               {{ getDays(date) }} <span class="unit">D</span>
