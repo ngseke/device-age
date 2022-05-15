@@ -1,3 +1,4 @@
+const { createApp, onMounted } = Vue
 const birthday = {
   'MacBook Pro 13" 2015 Early': '2016-04-01',
   'MacBook Pro 13" 2020': '2020-07-15',
@@ -9,34 +10,15 @@ const birthday = {
   'AirPods Pro': '2020-07-09',
   'Apple Watch SE': '2020-09-23',
 }
-const devices = Object.keys(birthday)
 
-new Vue({
-  el: '#app',
-  data: () => ({
-    birthday,
-  }),
-  mounted() {
-    document.querySelector('body').classList.remove('hide')
-  },
-  methods: {
-    setTitle (name) {
-      document.title = `How old is my ${name}?`
-    },
-    toggleFormat () {
-      const formats = ['ymd', 'd', 'birthday']
-      const newIndex = (formats.findIndex(i => i === this.format) + 1) % formats.length
-      this.format = formats[newIndex]
-    },
-    getAge (date) {
-      const { year, month, day } = calc(date)
-      return { year, month, day }
-    },
-    getDays (date) {
-      return moment().diff(date, 'days')
-    },
-  },
-})
+function getDays (date) {
+  return moment().diff(date, 'days')
+}
+
+function getAge (date) {
+  const { year, month, day } = calc(date)
+  return { year, month, day }
+}
 
 function calc (date) {
   const a = moment()
@@ -52,3 +34,13 @@ function calc (date) {
 
   return { year, month, day }
 }
+
+createApp({
+  setup () {
+    onMounted(() => {
+      document.querySelector('body').classList.remove('hide')
+    })
+
+    return { birthday, getAge, getDays }
+  },
+}).mount('#app')
