@@ -36,14 +36,10 @@ body {
 
 .table {
   display: block;
-  width: 100%;
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
 }
 
-table {
-  width: 100%;
-}
 
 thead {
   color: var(--primary);
