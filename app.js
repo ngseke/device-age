@@ -1,6 +1,6 @@
 const birthday = {
-  'Macbook Pro 13" 2015 Early': '2016-04-01',
-  'Macbook Pro 13" 2020': '2020-07-15',
+  'MacBook Pro 13" 2015 Early': '2016-04-01',
+  'MacBook Pro 13" 2020': '2020-07-15',
   'iPhone 12': '2021-03-20',
   'iPhone 8': '2018-09-25',
   'iPad 6th Gen': '2018-07-02',
