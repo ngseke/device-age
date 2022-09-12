@@ -43,7 +43,7 @@ const age = computed(() => getAge(birthday.value))
       <h2 class="text-lg font-semibold">
         {{ device.name }}
       </h2>
-      <div class="mb-1 text-xs text-gray-700">
+      <div class="mb-1 text-xs opacity-70">
         {{ birthday }}
       </div>
       <div class="space-x-3">
