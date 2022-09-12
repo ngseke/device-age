@@ -18,6 +18,7 @@
     "lint:flx": "npx eslint --fix src"
   },
   "dependencies": {
+    "@vueuse/core": "^9.2.0",
     "dayjs": "^1.11.5",
     "vue": "^3.2.37"
   },
