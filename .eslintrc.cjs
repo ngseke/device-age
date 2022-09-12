@@ -69,5 +69,8 @@ module.exports = {
     'vue/component-tags-order': ['error', {
       order: ['script', 'template', 'style'],
     }],
+    'tailwindcss/no-custom-classname': ['warn', {
+      config: 'tailwind.config.cjs',
+    }],
   },
 }
