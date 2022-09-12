@@ -1,39 +1,21 @@
 <script setup lang="ts">
-// This starter template is using Vue 3 <script setup> SFCs
-// Check out https://vuejs.org/api/sfc-script-setup.html#script-setup
-import HelloWorld from './components/HelloWorld.vue'
+import Item from './components/Item.vue'
+import devices from './modules/devices'
 </script>
 
 <template>
-  <div>
-    <a href="https://vitejs.dev" target="_blank">
-      <img
-        src="/vite.svg"
-        class="logo"
-        alt="Vite logo"
+  <main class="container py-4 text-gray-900">
+    <transition-group
+      tag="div"
+      class="flex flex-wrap gap-4 transition-all"
+    >
+      <div
+        v-for="(device) in devices"
+        :key="device.key"
+        class="flex-none"
       >
-    </a>
-    <a href="https://vuejs.org/" target="_blank">
-      <img
-        src="./assets/vue.svg"
-        class="logo vue"
-        alt="Vue logo"
-      >
-    </a>
-  </div>
-  <HelloWorld msg="Vite + Vue" />
+        <Item :device="device" />
+      </div>
+    </transition-group>
+  </main>
 </template>
-
-<style scoped>
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.vue:hover {
-  filter: drop-shadow(0 0 2em #42b883aa);
-}
-</style>
