@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import Item from './components/Item.vue'
 import devices from './modules/devices'
+import ButtonDarkMode from './components/ButtonDarkMode.vue'
 </script>
 
 <template>
@@ -10,7 +11,9 @@ import devices from './modules/devices'
         <h1 class="mb-5 text-4xl font-bold sm:text-5xl ">
           Device Age
         </h1>
+        <ButtonDarkMode />
       </header>
+
       <transition-group
         tag="div"
         class="flex flex-wrap gap-4 transition-all"
