@@ -6,8 +6,8 @@ import Footer from './components/Footer.vue'
 </script>
 
 <template>
-  <main class="container flex min-h-screen flex-col justify-center text-gray-900 dark:text-white">
-    <div class="px-3 py-4">
+  <main class="container flex min-h-screen max-w-6xl flex-col justify-center text-gray-900 dark:text-white">
+    <div class="px-3 py-6">
       <Header />
 
       <transition-group
