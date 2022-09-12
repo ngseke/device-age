@@ -9,7 +9,11 @@ module.exports = {
     container: {
       center: true,
     },
-    extend: {},
+    extend: {
+      fontFamily: {
+        roboto: ['Roboto Condensed', 'sans-serif'],
+      },
+    },
   },
   plugins: [],
 }

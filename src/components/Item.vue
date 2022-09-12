@@ -46,11 +46,11 @@ const age = computed(() => getAge(birthday.value))
       <div class="mb-1 text-xs opacity-70">
         {{ birthday }}
       </div>
-      <div class="space-x-3">
+      <div class="font-roboto space-x-3">
         <span class="text-3xl font-bold">
           {{ days }}
         </span>
-        <span class="font-medium">
+        <span>
           <span class="text-xl">{{ age.year }}</span>Y
           <span class="text-xl">{{ age.month }}</span>M
           <span class="text-xl">{{ age.day }}</span>D
