@@ -15,7 +15,7 @@
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
     "preinstall": "npx only-allow pnpm",
-    "lint:flx": "npx eslint --fix src"
+    "lint:fix": "npx eslint --fix src"
   },
   "dependencies": {
     "@vueuse/core": "^9.2.0",
