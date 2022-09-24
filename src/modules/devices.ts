@@ -3,6 +3,7 @@ import Device from '../types/Device'
 const devices: Device[] = [
   { name: 'MacBook Pro 13" 2015 Early', birthday: '2016-04-01' },
   { name: 'MacBook Pro 13" 2020', birthday: '2020-07-15' },
+  { name: 'iPhone 13 mini', birthday: '2022-09-23' },
   { name: 'iPhone 12', birthday: '2021-03-20' },
   { name: 'iPhone 8', birthday: '2018-09-25' },
   { name: 'iPad 6th Gen', birthday: '2018-07-02' },
