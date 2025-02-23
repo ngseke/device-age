@@ -1,4 +1,3 @@
-
 <script setup lang="ts">
 import ButtonDarkMode from './ButtonDarkMode.vue'
 </script>

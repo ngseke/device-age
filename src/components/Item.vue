@@ -46,7 +46,7 @@ const age = computed(() => getAge(birthday.value))
       <div class="mb-1 text-xs opacity-70">
         {{ birthday }}
       </div>
-      <div class="font-roboto space-x-3">
+      <div class="space-x-3 font-roboto">
         <span class="text-3xl font-bold">
           {{ days }}
         </span>
